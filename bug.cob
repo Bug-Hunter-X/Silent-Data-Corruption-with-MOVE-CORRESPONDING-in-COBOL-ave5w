@@ -1,0 +1,3 @@
+MOVE CORRESPONDING WS-RECORD TO DB-RECORD.
+
+This statement looks innocent, but it's a common source of errors in COBOL.  If WS-RECORD and DB-RECORD have different data types or lengths for corresponding fields, unexpected results can occur.  For example, if a field in WS-RECORD is a PIC 9(5) and the corresponding field in DB-RECORD is PIC 9(6), truncation or padding with zeros could happen silently, leading to data corruption or inaccurate calculations.  The compiler won't necessarily flag this as an error unless explicit data type checking is enabled (which is not always the case).
